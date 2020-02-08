@@ -133,7 +133,7 @@ func (entity *Entity) searchMap(source map[string]interface{}, path []string) in
 		}
 
 		// Nested case
-		switch  next := next.(type) {
+		switch next := next.(type) {
 		case map[interface{}]interface{}:
 			return entity.searchMap(cast.ToStringMap(next), path[1:])
 		case map[string]interface{}:

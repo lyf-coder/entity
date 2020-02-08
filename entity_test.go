@@ -18,10 +18,9 @@ func Test_NewByJson(t *testing.T) {
 
 	entity := NewByJSON(f)
 
-	if !entity.GetBool("event:simulator"){
+	if !entity.GetBool("event:simulator") {
 		t.Errorf("GetBool 'event:simulator' val is not true")
 	}
-
 
 	clientContext := New(entity.GetStringMapSlice("clientContext")[1])
 	offsetInMilliseconds := clientContext.GetInt("payload:offsetInMilliseconds")
