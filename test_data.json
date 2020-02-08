@@ -1,0 +1,34 @@
+{
+  "event": {
+    "header": {
+      "namespace": "ai.dueros.device_interface.text_input",
+      "name": "TextInput",
+      "messageId": "b80537ac-4f48-4852-9869-41c550c704ab",
+      "dialogRequestId": "ed8fbc9c-6555-4d32-ba6d-4fb836149e23"
+    },
+    "simulator": true
+  },
+  "clientContext": [
+    {
+      "header": {
+        "namespace": "ai.dueros.device_interface.screen",
+        "name": "ViewState"
+      },
+      "payload": {
+        "token": "eyJib3RfaWQiOiI0NDI2YzZjZC1kNTExLWQwNWQtYzE0Yy0yY2VkMGM2NzkxMWYiLCJyZXN1bHRfdG9rZW4iOiJjOWU3YjhjMTdhZWNlOGFiMTc2MmJiNTU1MWVlNzRmNCIsImJvdF90b2tlbiI6IjgwOWY1N2UzLWY1NzctNDVkOS04MjAwLTY2YjEzODVmMThiNiIsImxhdW5jaF9pZHMiOlsiNDQyNmM2Y2QtZDUxMS1kMDVkLWMxNGMtMmNlZDBjNjc5MTFmIl19"
+      }
+    },
+    {
+      "header": {
+        "namespace": "ai.dueros.device_interface.voice_output",
+        "name": "SpeechState"
+      },
+      "payload": {
+        "token": "eyJib3RfaWQiOiJ1cyIsInJlc3VsdF90b2tlbiI6IjU3ZjEwMTUxMTJjYzdiMjI5NmY5Zjk4Njk2ZjM2M2NlIiwiYm90X3Rva2VuIjoibnVsbCIsImxhdW5jaF9pZHMiOlsiIl19",
+        "offsetInMilliseconds": 1023785,
+        "playerActivity": "FINISHED",
+        "voiceId": 0
+      }
+    }
+  ]
+}
