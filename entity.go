@@ -15,6 +15,7 @@ import (
 	"github.com/spf13/cast"
 )
 
+// Entity is json access type like github.com/spf13/viper
 type Entity struct {
 	// Delimiter that separates a list of keys
 	// used to access a nested value in one go
@@ -31,8 +32,8 @@ func New(data map[string]interface{}) *Entity {
 	return entity
 }
 
-// NewByJson returns an initialized Entity instance by json byte[].
-func NewByJson(data []byte) *Entity {
+// NewByJSON returns an initialized Entity instance by json byte[].
+func NewByJSON(data []byte) *Entity {
 	mapData := make(map[string]interface{})
 	err := json.Unmarshal(data, &mapData)
 	if err != nil {
@@ -99,8 +100,7 @@ func toCaseInsensitiveValue(value interface{}) interface{} {
 	return value
 }
 
-// copyAndInsensitiviseMap behaves like insensitiviseMap, but creates a copy of
-// any map it makes case insensitive.
+// copyAndInsensitiveMap  creates a copy of any map it makes case insensitive.
 func copyAndInsensitiveMap(m map[string]interface{}) map[string]interface{} {
 	nm := make(map[string]interface{})
 
@@ -133,13 +133,13 @@ func (entity *Entity) searchMap(source map[string]interface{}, path []string) in
 		}
 
 		// Nested case
-		switch next.(type) {
+		switch  next := next.(type) {
 		case map[interface{}]interface{}:
 			return entity.searchMap(cast.ToStringMap(next), path[1:])
 		case map[string]interface{}:
 			// Type assertion is safe here since it is only reached
 			// if the type of `next` is the same as the type being asserted
-			return entity.searchMap(next.(map[string]interface{}), path[1:])
+			return entity.searchMap(next, path[1:])
 		default:
 			// got a value but nested key expected, return "nil" for not found
 			return nil
@@ -281,9 +281,7 @@ func ToStringMapSlice(i interface{}) ([]map[string]interface{}, error) {
 		}
 		return s, nil
 	case []map[string]interface{}:
-		for _, u := range v {
-			s = append(s, u)
-		}
+		s = append(s, v...)
 		return s, nil
 	default:
 		return s, fmt.Errorf("unable to cast %#v of type %T to []map[string]interface{}", i, i)

@@ -16,7 +16,7 @@ func Test_NewByJson(t *testing.T) {
 		t.Fatal("read fail", err)
 	}
 
-	entity := NewByJson(f)
+	entity := NewByJSON(f)
 
 	if !entity.GetBool("event:simulator"){
 		t.Errorf("GetBool 'event:simulator' val is not true")
