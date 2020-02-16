@@ -14,7 +14,18 @@ import (
 func TestEntity_Get(t *testing.T) {
 	e := new(Entity)
 	e.Set("name", "jack")
-	log.Println(e.Get("name"))
+	log.Println()
+	if e.Get("name") != "jack" {
+		t.Error("Get name value is not jack")
+	}
+}
+
+func TestEntity_GetData(t *testing.T) {
+	e := new(Entity)
+	e.Set("name", "jack")
+	if e.GetData()["name"] != "jack" {
+		t.Error("GetData func is error")
+	}
 }
 
 func Test_NewByJson(t *testing.T) {

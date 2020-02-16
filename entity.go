@@ -24,6 +24,11 @@ type Entity struct {
 	data map[string]interface{}
 }
 
+// GetData return entity.data
+func (entity *Entity) GetData() map[string]interface{} {
+	return entity.data
+}
+
 // New returns an initialized Entity instance.
 func New(data map[string]interface{}) *Entity {
 	entity := new(Entity)
