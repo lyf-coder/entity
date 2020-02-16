@@ -76,9 +76,16 @@ func deepSearch(m map[string]interface{}, path []string) map[string]interface{} 
 // Set sets the value for the key in the Entity
 func (entity *Entity) Set(key string, value interface{}) *Entity {
 	value = toCaseInsensitiveValue(value)
+	if entity.data == nil {
+		entity.data = make(map[string]interface{})
+	}
+	if entity.keyDelim == "" {
+		entity.keyDelim = ":"
+	}
 
 	path := strings.Split(key, entity.keyDelim)
 	lastKey := path[len(path)-1]
+
 	deepestMap := deepSearch(entity.data, path[0:len(path)-1])
 
 	// set innermost value

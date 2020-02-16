@@ -7,8 +7,15 @@ package entity
 
 import (
 	"io/ioutil"
+	"log"
 	"testing"
 )
+
+func TestEntity_Get(t *testing.T) {
+	e := new(Entity)
+	e.Set("name", "jack")
+	log.Println(e.Get("name"))
+}
 
 func Test_NewByJson(t *testing.T) {
 	f, err := ioutil.ReadFile("test_data.json")
